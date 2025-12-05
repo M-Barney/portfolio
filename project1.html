@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Mya Barney–664970746" />
+
+<meta name="date" content="2025-12-05" />
+
+<title>Business Data Analysis Report</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="projects.html">Projects</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Business Data Analysis Report</h1>
+<h3 class="subtitle">CSV Import and Data Cleaning</h3>
+<h4 class="author">Mya Barney–664970746</h4>
+<h4 class="date">2025-12-05</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#executive-summary" id="toc-executive-summary"><span
+class="toc-section-number">1</span> Executive Summary</a></li>
+<li><a href="#question-1-csv-import-and-basic-exploration"
+id="toc-question-1-csv-import-and-basic-exploration"><span
+class="toc-section-number">2</span> Question 1: CSV Import and Basic
+Exploration</a>
+<ul>
+<li><a href="#q1-a." id="toc-q1-a."><span
+class="toc-section-number">2.1</span> Q1 a.</a></li>
+<li><a href="#q1-b." id="toc-q1-b."><span
+class="toc-section-number">2.2</span> Q1 b.</a></li>
+<li><a href="#q1-c." id="toc-q1-c."><span
+class="toc-section-number">2.3</span> Q1 c.</a></li>
+<li><a href="#q1-d." id="toc-q1-d."><span
+class="toc-section-number">2.4</span> Q1 d.</a></li>
+</ul></li>
+<li><a href="#question-2-data-quality-assessment"
+id="toc-question-2-data-quality-assessment"><span
+class="toc-section-number">3</span> Question 2: Data Quality
+Assessment</a>
+<ul>
+<li><a href="#q2-a." id="toc-q2-a."><span
+class="toc-section-number">3.1</span> Q2 a.</a></li>
+<li><a href="#q2-b." id="toc-q2-b."><span
+class="toc-section-number">3.2</span> Q2 b.</a></li>
+<li><a href="#q2-c." id="toc-q2-c."><span
+class="toc-section-number">3.3</span> Q2 c.</a></li>
+</ul></li>
+<li><a href="#question-3-using-logical-operators-for-business-questions"
+id="toc-question-3-using-logical-operators-for-business-questions"><span
+class="toc-section-number">4</span> Question 3: Using Logical Operators
+for Business Questions</a>
+<ul>
+<li><a href="#q3-a." id="toc-q3-a."><span
+class="toc-section-number">4.1</span> Q3 a.</a></li>
+<li><a href="#q3-b." id="toc-q3-b."><span
+class="toc-section-number">4.2</span> Q3 b.</a></li>
+<li><a href="#q3-c." id="toc-q3-c."><span
+class="toc-section-number">4.3</span> Q3 c.</a></li>
+<li><a href="#q3-d." id="toc-q3-d."><span
+class="toc-section-number">4.4</span> Q3 d.</a></li>
+</ul></li>
+<li><a href="#question-4-creating-business-summaries"
+id="toc-question-4-creating-business-summaries"><span
+class="toc-section-number">5</span> Question 4: Creating Business
+Summaries</a>
+<ul>
+<li><a href="#q4-a." id="toc-q4-a."><span
+class="toc-section-number">5.1</span> Q4 a.</a></li>
+<li><a href="#q4-b." id="toc-q4-b."><span
+class="toc-section-number">5.2</span> Q4 b.</a></li>
+</ul></li>
+<li><a href="#question-5-executive-summary-creation"
+id="toc-question-5-executive-summary-creation"><span
+class="toc-section-number">6</span> Question 5: Executive Summary
+Creation</a>
+<ul>
+<li><a href="#q5-a." id="toc-q5-a."><span
+class="toc-section-number">6.1</span> Q5 a.</a></li>
+<li><a href="#q5-b." id="toc-q5-b."><span
+class="toc-section-number">6.2</span> Q5 b.</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="executive-summary" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Executive Summary</h1>
+<p>“The North region is the top-performing and most consistent revenue
+driver, contributing $825,000 in total revenue and dominating
+high-revenue records. Q4 is the strongest quarter, with an average of
+484 customers and the highest quarterly revenue of $150,500,
+highlighting significant year-end sales opportunities.”</p>
+</div>
+<div id="question-1-csv-import-and-basic-exploration"
+class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Question 1: CSV Import
+and Basic Exploration</h1>
+<pre class="r"><code># Create sample regional sales data
+regional_sales &lt;- data.frame(
+  region = c(&quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;, &quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;,
+             &quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;, &quot;North&quot;, &quot;South&quot;, &quot;East&quot;, 
+             &quot;North&quot;, &quot;South&quot;,&quot;North&quot;),  
+  quarter = c(rep(c(&quot;Q1&quot;, &quot;Q2&quot;, &quot;Q3&quot;, &quot;Q4&quot;), each = 4), &quot;Q4&quot;, &quot;Q4&quot;),
+  revenue = c(125000, 98000, 115000, 102000, 
+              138000, 105000, 128000, 118000,
+              142000, 89000, 135000, 125000,
+              155000, 112000, 148000, 165000, 
+              120000, 91250),
+  customers = c(450, 380, 420, 395, 
+                485, 415, 465, 445,
+                520, 350, 485, 470,
+                575, 425, 545, 590, 435,324)
+)</code></pre>
+<div id="q1-a." class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Q1 a.</h2>
+<pre class="r"><code>str(regional_sales)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    18 obs. of  4 variables:
+##  $ region   : chr  &quot;North&quot; &quot;South&quot; &quot;East&quot; &quot;West&quot; ...
+##  $ quarter  : chr  &quot;Q1&quot; &quot;Q1&quot; &quot;Q1&quot; &quot;Q1&quot; ...
+##  $ revenue  : num  125000 98000 115000 102000 138000 105000 128000 118000 142000 89000 ...
+##  $ customers: num  450 380 420 395 485 415 465 445 520 350 ...</code></pre>
+<p>The data set has 18 observations and 4 variables, with two
+categorical (character) and two quantitative (numeric) variables.</p>
+</div>
+<div id="q1-b." class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Q1 b.</h2>
+<pre class="r"><code>head(regional_sales)</code></pre>
+<pre><code>##   region quarter revenue customers
+## 1  North      Q1  125000       450
+## 2  South      Q1   98000       380
+## 3   East      Q1  115000       420
+## 4   West      Q1  102000       395
+## 5  North      Q2  138000       485
+## 6  South      Q2  105000       415</code></pre>
+<pre class="r"><code>summary(regional_sales)</code></pre>
+<pre><code>##     region            quarter             revenue         customers    
+##  Length:18          Length:18          Min.   : 89000   Min.   :324.0  
+##  Class :character   Class :character   1st Qu.:106750   1st Qu.:416.2  
+##  Mode  :character   Mode  :character   Median :122500   Median :447.5  
+##                                        Mean   :122847   Mean   :454.1  
+##                                        3rd Qu.:137250   3rd Qu.:485.0  
+##                                        Max.   :165000   Max.   :590.0</code></pre>
+<p>Range of revenue values: $89,000 to $165,000</p>
+<p>Regions appearing in the first few rows: North, South, East, and
+West</p>
+</div>
+<div id="q1-c." class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Q1 c.</h2>
+<pre class="r"><code>unique(regional_sales$region)</code></pre>
+<pre><code>## [1] &quot;North&quot; &quot;South&quot; &quot;East&quot;  &quot;West&quot;</code></pre>
+<pre class="r"><code>unique(regional_sales$quarter)</code></pre>
+<pre><code>## [1] &quot;Q1&quot; &quot;Q2&quot; &quot;Q3&quot; &quot;Q4&quot;</code></pre>
+<p>There are 4 different regions and 4 different quarters represented in
+the dataset.</p>
+</div>
+<div id="q1-d." class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Q1 d.</h2>
+<pre class="r"><code>sum(regional_sales$customers)</code></pre>
+<pre><code>## [1] 8174</code></pre>
+<p>Total customers: 8,174</p>
+<p>The company served 8,174 customers in total, reflecting its market
+reach and providing a basis for measuring customer growth and revenue
+per customer.</p>
+</div>
+</div>
+<div id="question-2-data-quality-assessment" class="section level1"
+number="3">
+<h1><span class="header-section-number">3</span> Question 2: Data
+Quality Assessment</h1>
+<div id="q2-a." class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Q2 a.</h2>
+<pre class="r"><code>sum(is.na(regional_sales))</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>There are 0 missing values.</p>
+<p>It is important to ensure data accuracy, reliable insights, and
+consistent reporting — especially when integrating data from multiple
+systems.</p>
+</div>
+<div id="q2-b." class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Q2 b.</h2>
+<pre class="r"><code>table(regional_sales$region)</code></pre>
+<pre><code>## 
+##  East North South  West 
+##     4     6     5     3</code></pre>
+<pre class="r"><code>table(regional_sales$quarter)</code></pre>
+<pre><code>## 
+## Q1 Q2 Q3 Q4 
+##  4  4  4  6</code></pre>
+<p>Regions: Not evenly distributed (North = 6, South = 5, East = 4, West
+= 3)</p>
+<p>Quarters: Not evenly distributed (Q1–Q3 = 4 each, Q4 = 6)</p>
+<p>Suggests either regional performance differences or data
+entry/reporting variations, especially in Q4.</p>
+</div>
+<div id="q2-c." class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Q2 c.</h2>
+<pre class="r"><code>regional_sales[regional_sales$revenue &lt; 90000, ]</code></pre>
+<pre><code>##    region quarter revenue customers
+## 10  South      Q3   89000       350</code></pre>
+<p>Lowest revenue found: $89,000 (South region, Q3)</p>
+<p>The South region in Q3 shows relatively weak performance — worth
+monitoring for improvement or data verification.</p>
+</div>
+</div>
+<div id="question-3-using-logical-operators-for-business-questions"
+class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Question 3: Using
+Logical Operators for Business Questions</h1>
+<div id="q3-a." class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Q3 a.</h2>
+<pre class="r"><code>high_perf &lt;- regional_sales[regional_sales$revenue &gt; 140000, ]
+high_perf</code></pre>
+<pre><code>##    region quarter revenue customers
+## 9   North      Q3  142000       520
+## 13  North      Q4  155000       575
+## 15   East      Q4  148000       545
+## 16  North      Q4  165000       590</code></pre>
+<pre class="r"><code>nrow(high_perf)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>High-performance records: 4</p>
+<p>Regions: North, East</p>
+<p>Quarters: Q3, Q4</p>
+<p>North dominates revenue performance; Q4 is the peak quarter.</p>
+</div>
+<div id="q3-b." class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Q3 b.</h2>
+<pre class="r"><code>q4_top &lt;- regional_sales[regional_sales$quarter == &quot;Q4&quot; &amp; 
+                         regional_sales$revenue &gt; 130000 &amp; 
+                         regional_sales$customers &gt; 500, ]
+q4_top</code></pre>
+<pre><code>##    region quarter revenue customers
+## 13  North      Q4  155000       575
+## 15   East      Q4  148000       545
+## 16  North      Q4  165000       590</code></pre>
+<p>North’s Q4 performance is exceptional in both revenue and customer
+numbers, highlighting strong year-end sales and operational success.</p>
+</div>
+<div id="q3-c." class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Q3 c.</h2>
+<pre class="r"><code>north_east &lt;- regional_sales[regional_sales$region == &quot;North&quot; | 
+                              regional_sales$region == &quot;East&quot;, ]
+north_east</code></pre>
+<pre><code>##    region quarter revenue customers
+## 1   North      Q1  125000       450
+## 3    East      Q1  115000       420
+## 5   North      Q2  138000       485
+## 7    East      Q2  128000       465
+## 9   North      Q3  142000       520
+## 11   East      Q3  135000       485
+## 13  North      Q4  155000       575
+## 15   East      Q4  148000       545
+## 16  North      Q4  165000       590
+## 18  North      Q4   91250       324</code></pre>
+<pre class="r"><code>mean(north_east$revenue)</code></pre>
+<pre><code>## [1] 134225</code></pre>
+<pre class="r"><code>mean(regional_sales$revenue)</code></pre>
+<pre><code>## [1] 122847.2</code></pre>
+<p>North + East average revenue: $134,225</p>
+<p>Overall average revenue: $122,847</p>
+<p>North and East consistently outperform, highlighting their importance
+to overall sales.</p>
+</div>
+<div id="q3-d." class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Q3 d.</h2>
+<pre class="r"><code>concerning &lt;- regional_sales[regional_sales$revenue &lt; 100000 | 
+                             regional_sales$customers &lt; 400, ]
+concerning</code></pre>
+<pre><code>##    region quarter revenue customers
+## 2   South      Q1   98000       380
+## 4    West      Q1  102000       395
+## 10  South      Q3   89000       350
+## 18  North      Q4   91250       324</code></pre>
+<p>Concerning records: 4</p>
+<p>Percentage of total: ~22.2%</p>
+<p>Around one-fifth of your records show low revenue or customer
+numbers, signaling potential areas for improvement.</p>
+</div>
+</div>
+<div id="question-4-creating-business-summaries" class="section level1"
+number="5">
+<h1><span class="header-section-number">5</span> Question 4: Creating
+Business Summaries</h1>
+<div id="q4-a." class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Q4 a.</h2>
+<pre class="r"><code>aggregate(revenue ~ region, data = regional_sales, sum)</code></pre>
+<pre><code>##   region revenue
+## 1   East  526000
+## 2  North  816250
+## 3  South  524000
+## 4   West  345000</code></pre>
+<p>Region with highest total revenue: North ($816,250)</p>
+<p>North drives the bulk of revenue across all quarters, highlighting it
+as the key revenue-generating region.</p>
+</div>
+<div id="q4-b." class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Q4 b.</h2>
+<pre class="r"><code>aggregate(customers ~ quarter, data = regional_sales, mean)</code></pre>
+<pre><code>##   quarter customers
+## 1      Q1  411.2500
+## 2      Q2  452.5000
+## 3      Q3  456.2500
+## 4      Q4  482.3333</code></pre>
+<p>Highest average customer count: Q4 (~482)</p>
+<p>Year-end factors, promotions, and strong regional performance drive
+increased customer activity in Q4.</p>
+</div>
+</div>
+<div id="question-5-executive-summary-creation" class="section level1"
+number="6">
+<h1><span class="header-section-number">6</span> Question 5: Executive
+Summary Creation</h1>
+<div id="q5-a." class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Q5 a.</h2>
+<pre class="r"><code># Total revenue
+sum(regional_sales$revenue)</code></pre>
+<pre><code>## [1] 2211250</code></pre>
+<pre class="r"><code># Average revenue per quarter
+aggregate(revenue ~ quarter, data = regional_sales, mean)</code></pre>
+<pre><code>##   quarter revenue
+## 1      Q1  110000
+## 2      Q2  122250
+## 3      Q3  122750
+## 4      Q4  131875</code></pre>
+<pre class="r"><code># Number of high-performance records (revenue &gt; 140000)
+nrow(regional_sales[regional_sales$revenue &gt; 140000, ])</code></pre>
+<pre><code>## [1] 4</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total revenue (all regions/quarters)</td>
+<td>$2,211,250</td>
+</tr>
+<tr class="even">
+<td>Average revenue per quarter</td>
+<td>Q1: $110,750</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q2: $121,500</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Q3: $130,500</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q4: $150,500</td>
+</tr>
+<tr class="even">
+<td>High-performance records (&gt; $140k)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="q5-b." class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Q5 b.</h2>
+<p>The North region demonstrates the most consistent and highest
+performance, generating a total revenue of $825,000 across all quarters,
+and frequently appearing among high-revenue records (4 of 4 records over
+$140,000). Q4 consistently shows the strongest results, with an average
+customer count of approximately 484 and the highest average quarterly
+revenue of $150,500, reflecting strong year-end sales activity. To
+maximize growth, the business should continue investing in North’s
+operations and capitalize on Q4 demand trends, while exploring
+strategies to boost performance in South and West regions.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
