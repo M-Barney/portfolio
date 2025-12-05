@@ -9,16 +9,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mya Barney" />
 
-<meta name="date" content="2025-11-29" />
 
-<title>My Projects</title>
+<title>Projects</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -31,9 +29,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -44,16 +43,6 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -221,6 +210,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -228,6 +280,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -265,37 +327,56 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">My Projects</h1>
-<h4 class="author">Mya Barney</h4>
-<h4 class="date">2025-11-29</h4>
+<h1 class="title toc-ignore">Projects</h1>
 
 </div>
 
 
-<div id="data-analysis-projects" class="section level2">
-<h2>Data Analysis Projects</h2>
-<p>Here are some of my key projects demonstrating various data analysis
-skills.</p>
-<div id="project-1-business-data-analysis-report"
-class="section level3">
-<h3>Project 1: Business Data Analysis Report</h3>
-<p><strong>Objective:</strong> Clean and analyze operational data to
-identify performance patterns</p>
-<p><strong>Key Skills:</strong></p>
+<div id="featured-projects" class="section level2">
+<h2>Featured Projects</h2>
+<p>Each project demonstrates specific technical skills and analytical
+thinking applied to real-world datasets.</p>
+<div id="statistical-exploration-project" class="section level3">
+<h3>🔍 Statistical Exploration Project</h3>
+<p><strong>Business Challenge:</strong> [Customize based on your actual
+Unit 4 project]</p>
+<p><strong>My Approach:</strong></p>
 <ul>
-<li>CSV data processing</li>
-<li>Missing data handling</li>
-<li>Data visualization</li>
-<li>Executive reporting</li>
+<li>[Your specific methodology]</li>
+<li>[Your analytical techniques]</li>
+<li>[Your key findings]</li>
 </ul>
-<p><a href="project1.html">View detailed analysis →</a></p>
+<p><strong>Key Skills Demonstrated:</strong></p>
+<ul>
+<li>[Your demonstrated skills]</li>
+<li>[Your technical capabilities]</li>
+<li>[Your business insights]</li>
+</ul>
+<p><strong>Tools Used:</strong> R, [specific packages you used]</p>
+<p><a href="project1.html">📊 View Full Analysis</a></p>
 <hr />
+</div>
+</div>
+<div id="technical-capabilities" class="section level2">
+<h2>Technical Capabilities</h2>
+<p>Across these projects, I’ve demonstrated proficiency in:</p>
+<p>✓ <strong>Data Acquisition:</strong> CSV files, API integration,
+government data sources<br />
+✓ <strong>Data Cleaning:</strong> Missing value treatment, outlier
+detection, standardization<br />
+✓ <strong>Analysis:</strong> Aggregation, correlation, pattern
+identification<br />
+✓ <strong>Visualization:</strong> ggplot2, professional charts,
+executive dashboards<br />
+✓ <strong>Communication:</strong> R Markdown reports, business
+recommendations</p>
 <p><a href="index.html">← Back to Home</a></p>
 </div>
+
+
+
 </div>
-
-
-
+</div>
 
 </div>
 
@@ -328,6 +409,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

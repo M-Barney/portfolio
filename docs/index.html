@@ -11,12 +11,12 @@
 
 
 
-<title>Welcome to My Portfolio</title>
+<title>Portfolio</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -29,9 +29,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -42,16 +43,6 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -219,6 +210,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -226,6 +280,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -263,35 +327,36 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Welcome to My Portfolio</h1>
+<h1 class="title toc-ignore">Portfolio</h1>
 
 </div>
 
 
-<div id="hello-and-welcome" class="section level2">
-<h2>Hello and Welcome!</h2>
-<p>I’m [Your Name], and this is my portfolio. Here you’ll find projects
-showcasing my skills in:</p>
-<ul>
-<li>Data cleaning and transformation</li>
-<li>Statistical analysis</li>
-<li>Data visualization with ggplot2</li>
-<li>Professional reporting with R Markdown</li>
-</ul>
-<div id="featured-projects" class="section level3">
-<h3>Featured Projects</h3>
-<p>Throughout this portfolio, you’ll see analyses covering:</p>
-<ul>
-<li><strong>Government Data Analysis:</strong> Working with real-world
-public datasets</li>
-<li><strong>Business Performance:</strong> Analyzing operational data
-for insights</li>
-<li><strong>Data Visualization:</strong> Creating compelling charts and
-graphics</li>
-</ul>
-</div>
-<div id="navigate-this-portfolio" class="section level3">
-<h3>Navigate This Portfolio</h3>
+<p>Welcome!</p>
+<p>I’m Mya Barney, a problem solver passionate about extracting insights
+from complex problems and communicating findings to drive business
+decisions. What I Do I specialize in:</p>
+<p>📊 Data Analysis: Cleaning, transforming, and analyzing business data
+📈 Visualization: Creating clear, compelling charts with ggplot2 📝
+Reporting: Building professional reports that tell data stories 🔍
+Problem Solving: Applying statistical thinking to real-world
+challenges</p>
+<p>Portfolio Highlights Browse my projects to see:</p>
+<p>Government Data Analysis: Working with public datasets to extract
+business insights Performance Analytics: Analyzing operational data for
+decision-making Statistical Exploration: Uncovering patterns in
+real-world data</p>
+<p>Technical Skills Tools: R, RStudio, R Markdown, ggplot2, dplyr
+Analysis: Data cleaning, exploratory analysis, statistical visualization
+Communication: Report generation, data storytelling, executive
+summaries</p>
+<p>Let’s Connect</p>
+<p>📧 <a href="mailto:myabarney@shaw.ca">myabarney@shaw.ca</a></p>
+<p>💼 <a href="https://www.linkedin.com/in/mya-barney-2230a8398/">Mya
+Barney</a></p>
+<p>💻 <a href="https://github.com/M-Barney">M-Barney</a></p>
+<p>This portfolio showcases projects from my MGMT coursework and
+demonstrates practical skills in R and statistical analysis.</p>
 <p>Use the menu above to:</p>
 <ul>
 <li>Learn more <a href="about.html">about me</a></li>
@@ -300,11 +365,11 @@ graphics</li>
 <hr />
 <p><em>This portfolio was built using R Markdown and is hosted on GitHub
 Pages.</em></p>
+
+
+
 </div>
 </div>
-
-
-
 
 </div>
 
@@ -337,6 +402,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

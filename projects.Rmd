@@ -1,34 +1,44 @@
 ---
-title: "My Projects"
-author: "Mya Barney"
-date: "2025-11-29"
-output: html_document
+title: "Projects"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## Featured Projects
+
+Each project demonstrates specific technical skills and analytical thinking 
+applied to real-world datasets.
 
 
-## Data Analysis Projects
+### 🔍 Statistical Exploration Project
 
-Here are some of my key projects demonstrating various data analysis skills.
+**Business Challenge:** [Customize based on your actual Unit 4 project]
 
-### Project 1: Business Data Analysis Report
+**My Approach:**
 
-**Objective:** Clean and analyze operational data to identify performance 
-patterns
+- [Your specific methodology]
+- [Your analytical techniques]
+- [Your key findings]
 
-**Key Skills:**
+**Key Skills Demonstrated:**
 
-- CSV data processing
-- Missing data handling
-- Data visualization
-- Executive reporting
+- [Your demonstrated skills]
+- [Your technical capabilities]
+- [Your business insights]
 
-[View detailed analysis →](project1.html)
+**Tools Used:** R, [specific packages you used]
 
+[📊 View Full Analysis](project1.html)
 
 ---
+
+## Technical Capabilities
+
+Across these projects, I've demonstrated proficiency in:
+
+✓ **Data Acquisition:** CSV files, API integration, government data sources  
+✓ **Data Cleaning:** Missing value treatment, outlier detection, standardization  
+✓ **Analysis:** Aggregation, correlation, pattern identification  
+✓ **Visualization:** ggplot2, professional charts, executive dashboards  
+✓ **Communication:** R Markdown reports, business recommendations
 
 [← Back to Home](index.html)
+
