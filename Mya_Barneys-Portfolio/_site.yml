@@ -1,5 +1,8 @@
 ---
 name: "portfolio"
+output_dir: "docs"
+
+
 navbar:
   title: "Portfolio"
   left:
@@ -9,6 +12,6 @@ navbar:
       href: about.html
     - text: "Projects"
       href: projects.html
-output_dir: "docs"
+
 ---
 
