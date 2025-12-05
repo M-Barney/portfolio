@@ -1,0 +1,34 @@
+---
+title: "My Projects"
+author: "Mya Barney"
+date: "2025-11-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Data Analysis Projects
+
+Here are some of my key projects demonstrating various data analysis skills.
+
+### Project 1: Business Data Analysis Report
+
+**Objective:** Clean and analyze operational data to identify performance 
+patterns
+
+**Key Skills:**
+
+- CSV data processing
+- Missing data handling
+- Data visualization
+- Executive reporting
+
+[View detailed analysis →](project1.html)
+
+
+---
+
+[← Back to Home](index.html)
